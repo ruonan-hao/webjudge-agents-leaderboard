@@ -244,12 +244,18 @@ async def main():
         success_count = sum(1 for r in results if r.get("success"))
         print(f"Total Tasks: {len(results)}")
         print(f"Success Rate: {success_count}/{len(results)} ({success_count/len(results)*100:.1f}%)")
-        
         # Save results to output/results.json
+        # Format must match AgentBeats schema: { "participants": {role: id}, "results": [...] }
+        participants_info = {p["name"]: p.get("agentbeats_id", "") for p in cfg["participants"]}
+        final_output = {
+            "participants": participants_info,
+            "results": results
+        }
+        
         output_path = Path("output/results.json")
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w") as f:
-            json.dump(results, f, indent=2)
+            json.dump(final_output, f, indent=2)
         print(f"Results saved to {output_path}")
 
     except Exception as e:
