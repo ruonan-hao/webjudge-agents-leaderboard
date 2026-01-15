@@ -244,7 +244,13 @@ async def main():
         success_count = sum(1 for r in results if r.get("success"))
         print(f"Total Tasks: {len(results)}")
         print(f"Success Rate: {success_count}/{len(results)} ({success_count/len(results)*100:.1f}%)")
-        print(json.dumps(results, indent=2))
+        
+        # Save results to output/results.json
+        output_path = Path("output/results.json")
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "w") as f:
+            json.dump(results, f, indent=2)
+        print(f"Results saved to {output_path}")
 
     except Exception as e:
         print(f"Benchmark error: {e}")
