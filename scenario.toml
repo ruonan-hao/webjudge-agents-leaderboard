@@ -11,3 +11,4 @@ env = { WEB_AGENT_TYPE = "nebius", GOOGLE_API_KEY = "${GOOGLE_API_KEY}", NEBIUS_
 task_description = "Go to Google and search for AgentBeats"
 start_url = "https://www.google.com/"
 max_steps = 5
+# Trigger CI Thu Jan 15 15:15:46 PST 2026
