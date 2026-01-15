@@ -1,0 +1,13 @@
+[green_agent]
+agentbeats_id = "019bc034-55e8-7780-a2bb-29cecc000bfd"
+env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
+
+[[participants]]
+name = "web_agent"
+agentbeats_id = "019bc299-e68f-7873-bdf9-a53609074b8c"
+env = { WEB_AGENT_TYPE = "nebius", GOOGLE_API_KEY = "${GOOGLE_API_KEY}", NEBIUS_API_KEY = "${NEBIUS_API_KEY}" }
+
+[config]
+task_description = "Go to Google and search for AgentBeats"
+start_url = "https://www.google.com/"
+max_steps = 5
