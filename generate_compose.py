@@ -214,6 +214,7 @@ def generate_a2a_scenario(scenario: dict[str, Any]) -> str:
     for p in participants:
         lines = [
             f"[[participants]]",
+            f"name = \"{p['name']}\"",
             f"role = \"{p['name']}\"",
             f"endpoint = \"http://{p['name']}:{DEFAULT_PORT}\"",
         ]

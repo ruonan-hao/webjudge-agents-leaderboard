@@ -245,8 +245,22 @@ async def main():
         print(f"Total Tasks: {len(results)}")
         print(f"Success Rate: {success_count}/{len(results)} ({success_count/len(results)*100:.1f}%)")
         # Save results to output/results.json
+        # Re-read raw TOML to get metadata that parse_toml might drop
+        with open(args.scenario, "rb") as f:
+            raw_cfg = tomllib.load(f)
+        
+        # Build map: name/role -> agentbeats_id
+        # Check both 'name' (original toml) and 'role' (generated a2a-scenario.toml)
+        raw_participants = {}
+        for p in raw_cfg.get("participants", []):
+            key = p.get("name") or p.get("role")
+            if key:
+                raw_participants[key] = p.get("agentbeats_id", "")
+        
         # Format must match AgentBeats schema: { "participants": {role: id}, "results": [...] }
-        participants_info = {p["name"]: p.get("agentbeats_id", "") for p in cfg["participants"]}
+        # Note: cfg['participants'] uses 'role' (enforced by parse_toml) matching raw 'name'/'role'
+        participants_info = {p["role"]: raw_participants.get(p["role"], "") for p in cfg["participants"]}
+        
         final_output = {
             "participants": participants_info,
             "results": results
