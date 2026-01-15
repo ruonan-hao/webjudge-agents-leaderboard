@@ -1,0 +1,54 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "online-mind2_web",
+  "dataset_size": 53283,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/osunlp/Online-Mind2Web@88d7fd3d7e901a9f467caa940ef08fec0d39c64a/Online_Mind2Web.json": {
+      "num_bytes": 88192,
+      "checksum": null
+    }
+  },
+  "download_size": 88192,
+  "features": {
+    "task_id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "confirmed_task": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "website": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "reference_length": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "level": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 141475,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 53283,
+      "num_examples": 300,
+      "dataset_name": "online-mind2_web"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
