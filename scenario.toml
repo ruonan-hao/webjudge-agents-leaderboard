@@ -4,7 +4,7 @@ env = { GOOGLE_API_KEY = "${GOOGLE_API_KEY}" }
 
 [[participants]]
 name = "web_agent"
-agentbeats_id = "019bc036-5122-7692-b431-e203c4785221"
+agentbeats_id = "019bc299-e68f-7873-bdf9-a53609074b8c"
 env = { WEB_AGENT_TYPE = "nebius", GOOGLE_API_KEY = "${GOOGLE_API_KEY}", NEBIUS_API_KEY = "${NEBIUS_API_KEY}" }
 
 [config]
