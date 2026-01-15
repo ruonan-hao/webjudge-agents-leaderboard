@@ -76,13 +76,16 @@ services:
 
 {participant_services}
   agentbeats-client:
-    image: ghcr.io/agentbeats/agentbeats-client:v1.0.0
+    image: {green_image}
     platform: linux/amd64
     container_name: agentbeats-client
     volumes:
-      - ./a2a-scenario.toml:/app/scenario.toml
-      - ./output:/app/output
-    command: ["scenario.toml", "output/results.json"]
+      - ./a2a-scenario.toml:/home/agentbeats/webjudge-agents/scenario.toml
+      - ./output:/home/agentbeats/webjudge-agents/output
+      - ./data:/home/agentbeats/webjudge-agents/data
+      - ./run_benchmark.py:/home/agentbeats/webjudge-agents/run_benchmark.py
+    entrypoint: []
+    command: ["sleep", "infinity"]
     depends_on:{client_depends}
     networks:
       - agent-network

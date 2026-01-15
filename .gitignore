@@ -4,3 +4,8 @@ a2a-scenario.toml
 .env
 .env.example
 output/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
