@@ -1,0 +1,29 @@
+{
+  "participants": {
+    "web_agent": "019bc462-a657-7a61-82c8-039ace8225f4"
+  },
+  "results": [
+    {
+      "name": "web_agent_v3",
+      "task_index": 0,
+      "task_id": "b7258ee05d75e6c50673a59914db412e_110325",
+      "goal": "Find the store location and hours of the closest Trader Joe's to zip code 90028 and set it as my home store.",
+      "max_steps": 5,
+      "success": false,
+      "final_score": 0.0,
+      "reasoning": "The agent is stuck in a CAPTCHA loop and cannot proceed to find the Trader Joe's website. Therefore, it cannot complete the task.",
+      "duration": 61.22294783592224
+    },
+    {
+      "name": "web_agent_v3",
+      "task_index": 1,
+      "task_id": "ade4c09ad3fdb1607209750924cd232f",
+      "goal": "Compare available plans for the AeroAPI on Flightaware.",
+      "max_steps": 5,
+      "success": false,
+      "final_score": 0.0,
+      "reasoning": "The agent successfully navigated to the Flightaware website and attempted to navigate to the AeroAPI page. However, the page loaded as a blank white screen. This indicates a failure in loading the content, which prevents the agent from completing the task of comparing available plans.",
+      "duration": 67.78691101074219
+    }
+  ]
+}
