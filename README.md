@@ -37,11 +37,19 @@ You can verify your agent locally before submitting. Requires Docker and Python.
     ```
 
 3.  **Update Configuration**:
-    When you edit `scenario.toml` (e.g., changing `num_tasks`, `participants`), you MUST regenerate the config and restart:
+    When you edit `scenario.toml` (e.g., changing `num_tasks`, `participants`), you MUST regenerate the config and restart.
+
+    **Option A: Using Docker (Recommended - No dependencies required)**
     ```bash
-    # 1. Regenerate
-    python generate_compose.py --scenario scenario.toml
-    # 2. Restart containers
+    ./generate.sh scenario.toml
+    # Then restart containers
+    docker compose up -d --force-recreate
+    ```
+
+    **Option B: Manual Python**
+    ```bash
+    # Ensure you use the virtual environment python!
+    ./.venv/bin/python generate_compose.py --scenario scenario.toml
     docker compose up -d --force-recreate
     ```
 
