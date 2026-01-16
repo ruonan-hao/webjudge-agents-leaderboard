@@ -114,7 +114,7 @@ async def main():
     parser.add_argument("--task-id", type=int, help="Run specific task index")
     parser.add_argument("--random", action="store_true", help="Run random task")
     parser.add_argument("--run-all", action="store_true", help="Run all tasks")
-    parser.add_argument("--limit", type=int, default=10, help="Limit number of tasks for run-all")
+    parser.add_argument("--limit", type=int, default=None, help="Limit number of tasks for run-all (overrides config)")
     parser.add_argument("--show-logs", action="store_true", help="Show agent stdout/stderr")
     args = parser.parse_args()
 
@@ -165,7 +165,12 @@ async def main():
              tasks.append(dataset_loader.load_mind2web_task(index=None))
         elif args.run_all:
              total = dataset_loader.get_total_tasks()
-             limit = min(total, args.limit)
+             # Determine limit: CLI arg > TOML config > Default (10)
+             limit_val = args.limit
+             if limit_val is None:
+                 limit_val = int(cfg["config"].get("num_tasks", 10))
+                 
+             limit = min(total, limit_val)
              print(f"Running {limit} tasks...")
              for i in range(limit):
                  tasks.append(dataset_loader.load_mind2web_task(index=i))
@@ -225,6 +230,8 @@ async def main():
                 results.append({
                     "task_index": task["index"],
                     "task_id": task["task_id"],
+                    "goal": task["task_description"],
+                    "max_steps": max_steps,
                     "success": collector.result.get("success", False),
                     "final_score": collector.result.get("final_score", 0.0),
                     "reasoning": collector.result.get("reasoning", ""),
