@@ -270,7 +270,12 @@ async def main():
         
         # Format must match AgentBeats schema: { "participants": {role: id}, "results": [...] }
         # Note: cfg['participants'] uses 'role' (enforced by parse_toml) matching raw 'name'/'role'
-        participants_info = {p["role"]: raw_participants.get(p["role"], "") for p in cfg["participants"]}
+        # Format must match AgentBeats schema: { "participants": {role: id}, "results": [...] }
+        # We enforce "web_agent" as the key for the submission
+        participants_info = {}
+        if cfg["participants"]:
+            p = cfg["participants"][0]
+            participants_info["web_agent"] = raw_participants.get(p["role"], "")
         
         final_output = {
             "participants": participants_info,
