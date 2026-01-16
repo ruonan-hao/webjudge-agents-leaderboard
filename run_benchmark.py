@@ -227,7 +227,11 @@ async def main():
                 print(f"Completed in {duration:.2f}s")
                 print(f"Result: {collector.result}")
                 
+                # Get primary agent name (first participant)
+                agent_name = cfg["participants"][0]["role"] if cfg["participants"] else "unknown"
+
                 results.append({
+                    "name": agent_name,
                     "task_index": task["index"],
                     "task_id": task["task_id"],
                     "goal": task["task_description"],
