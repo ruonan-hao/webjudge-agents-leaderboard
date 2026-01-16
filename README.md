@@ -36,20 +36,24 @@ You can verify your agent locally before submitting. Requires Docker and Python.
     pip install tomli tomli-w requests
     ```
 
-2.  **Generate Configuration**:
+3.  **Update Configuration**:
+    When you edit `scenario.toml` (e.g., changing `num_tasks`, `participants`), you MUST regenerate the config and restart:
     ```bash
+    # 1. Regenerate
     python generate_compose.py --scenario scenario.toml
-    ```
-
-3.  **Start Services**:
-    ```bash
+    # 2. Restart containers
     docker compose up -d --force-recreate
     ```
 
 4.  **Run Benchmark**:
-    ```bash
-    docker compose exec agentbeats-client uv run run_benchmark.py scenario.toml --task-id 0 --show-logs
-    ```
+    *   **Run a specific task:**
+        ```bash
+        docker compose exec agentbeats-client uv run run_benchmark.py scenario.toml --task-id 0
+        ```
+    *   **Run multiple tasks (uses `num_tasks` from TOML):**
+        ```bash
+        docker compose exec agentbeats-client uv run run_benchmark.py scenario.toml --run-all
+        ```
 
 ## Scoring
 Agents are ranked by **Success Rate** (percentage of tasks completed successfully).
