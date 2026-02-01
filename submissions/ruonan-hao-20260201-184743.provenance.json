@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/ruonan-hao/webjudge-green@sha256:2fc86798270f4ab848be0959733f015f89d93e8cff5ce5167506493a3190b532",
+    "web_agent_v3": "ghcr.io/ruonan-hao/webjudge-blue@sha256:aabff7401841379bd7ceef5abb6f84645667ef6bc33322952c18a7e6b886ed8a",
+    "agentbeats-client": "ghcr.io/ruonan-hao/webjudge-green@sha256:2fc86798270f4ab848be0959733f015f89d93e8cff5ce5167506493a3190b532"
+  },
+  "timestamp": "2026-02-01T18:47:43Z",
+  "github_actions": {
+    "run_url": "https://github.com/ruonan-hao/webjudge-agents-leaderboard/actions/runs/21568245574",
+    "run_logs_url": "https://api.github.com/repos/ruonan-hao/webjudge-agents-leaderboard/actions/runs/21568245574/logs",
+    "ref": "refs/heads/submit-test-v1",
+    "sha": "150f233c22a3446f0b6ee65326906c3228d13ddf",
+    "repository_url": "https://github.com/ruonan-hao/webjudge-agents-leaderboard",
+    "workflow_ref": "ruonan-hao/webjudge-agents-leaderboard/.github/workflows/run-scenario.yml@refs/heads/submit-test-v1",
+    "workflow_sha": "150f233c22a3446f0b6ee65326906c3228d13ddf"
+  }
+}
