@@ -1,9 +1,14 @@
 name: Run Scenario
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'scenario.toml'
+      - '.github/workflows/**'
+      - 'docker-compose.yml'
+      - 'generate_compose.py'
+      - 'run_benchmark.py'
 
 jobs:
   run:
