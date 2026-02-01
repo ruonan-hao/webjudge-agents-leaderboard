@@ -1,9 +1,14 @@
 name: Run Scenario
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'scenario.toml'
+      - '.github/workflows/**'
+      - 'docker-compose.yml'
+      - 'generate_compose.py'
+      - 'run_benchmark.py'
 
 jobs:
   run:
@@ -69,7 +74,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Run assessment
-        run: docker compose run --rm agentbeats-client uv run run_benchmark.py scenario.toml --run-all
+        run: docker compose run --rm agentbeats-client uv run --frozen run_benchmark.py scenario.toml --run-all
 
       - name: Record provenance
         run: python record_provenance.py --compose docker-compose.yml --output output/provenance.json

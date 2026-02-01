@@ -62,6 +62,7 @@ services:
     image: {green_image}
     platform: linux/amd64
     container_name: green-agent
+    entrypoint: ["uv", "run", "--frozen", "scenarios/webjudge/adk_webjudge.py"]
     command: ["--host", "0.0.0.0", "--port", "{green_port}", "--card-url", "http://green-agent:{green_port}"]
     environment:{green_env}
     healthcheck:
