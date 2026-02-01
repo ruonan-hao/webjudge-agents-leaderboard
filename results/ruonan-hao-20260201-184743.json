@@ -1,0 +1,18 @@
+{
+  "participants": {
+    "web_agent": "019c1a6e-cc61-7141-a2bd-1b56c14bfac3"
+  },
+  "results": [
+    {
+      "name": "web_agent_v3",
+      "task_index": 0,
+      "task_id": "b7258ee05d75e6c50673a59914db412e_110325",
+      "goal": "Find the store location and hours of the closest Trader Joe's to zip code 90028 and set it as my home store.",
+      "max_steps": 3,
+      "success": false,
+      "final_score": 0.0,
+      "reasoning": "The agent is stuck on the Google verification page and cannot proceed with the search. Therefore, it cannot complete the task.",
+      "duration": 43.04919934272766
+    }
+  ]
+}
